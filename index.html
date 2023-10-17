@@ -3,22 +3,19 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
+        <link rel="stylesheet" href="styles.css" />
+        <title>Piggy Bank</title>
     </head>
-    <body id="colorDisplay">
-        <h1>Color Picker</h1>
+    <body>
+        <h1>Piggy Bank</h1>
+        <div class="piggy-bank" id="piggyBank">$0.00</div>
+        <input
+            type="text"
+            id="coinInput"
+            placeholder="Type coin letter (e.g., 'p' for penny)"
+        />
+        <button id="coinEnter">Add</button>
 
-        <input type="color" id="colorInput" />
-        <button id="applyColor">Apply Color</button>
-        <script>
-            const colorInput = document.getElementById("colorInput");
-            const applyColorButton = document.getElementById("applyColor");
-            const colorDisplay = document.getElementById("colorDisplay");
-
-            applyColorButton.addEventListener("click", function func() {
-                const selectedColor = colorInput.value;
-                colorDisplay.style.backgroundColor = selectedColor;
-            })
-        </script>
+        <script src="script.js"></script>
     </body>
 </html>
