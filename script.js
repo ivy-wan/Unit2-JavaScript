@@ -20,3 +20,11 @@ Some other helpful functions:
 str.toLowerCase() //turns the string str into lowercase 
 .toFixed(2) // rounds a number to 2 decimal places
  */
+
+let piggyBankAmount = 0.0;
+let button = document.getElementById("coinEnter");
+let input = document.getElementById("coinInput");
+
+button.addEventListener("click", function f() {
+
+});
