@@ -29,6 +29,22 @@ let correct = 0;
 
 function showQuestion(index) {
     // Step 2
+    const question = quizData[index];
+    questionElement.textContent = question.question;
+
+    // Create a for loop that iterates through the options
+    // Create a button element with the text of that option
+    // Add an event listen to the button to call checkAnswer
+
+    for(let i = 0; i < question.options.length; i++){
+        const optionButton = document.createElement("button");
+        optionButton.textContent = question.options[i];
+        optionButton.addEventListener("click", () => {
+            checkAnswer(optionButton.textContent)
+        })
+        optionsElement.appendChild(optionButton);
+    }
+
 }
 
 function checkAnswer(selectedOption) {
