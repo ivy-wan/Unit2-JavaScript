@@ -1,55 +1,53 @@
-const questionElement = document.getElementById("question");
-const optionsElement = document.getElementById("options");
+// Initialize an empty array to store scientist data
+let scientistData = {};
+
+// Get the file the user inputted.
+document
+    .getElementById("csvFileInput")
+    .addEventListener("change", function handleFile(e) {
+        const file = e.target.files[0];
+
+        // Check if the file is null
+        if (file) {
+            const reader = new FileReader();
+
+            reader.onload = function (e) {
+                const contents = e.target.result;
+                // Calls the function parseCSV
+                scientistData = parseCSV(contents);
+
+                console.log(scientistData);
+
+                // Display each scientist as a bullet in the list
+                displayScientistsList(scientistData);
+            };
+
+            reader.readAsText(file);
+        }
+    });
 
 /**
- * Step 1: Create a quizData object!
- * quizData have 3 properties: question, options, and correctAnswer.
+ * Takes in the data from the csv as a string.
+ * Parse the string and create an object for each row.
+ * @param data
  */
-const quizData = [
-    {
-        question: "What is the capital of Australia?",
-        options: ["Sydney", "Melbourne", "Canberra", "Brisbane"],
-        correctAnswer: "Canberra",
-    },
-    {
-        question: "Which planet is known as the Red Planet?",
-        options: ["Earth", "Mars", "Venus", "Jupiter"],
-        correctAnswer: "Mars",
-    },
-    {
-        question:
-            "Which gas do plants absorb from the atmosphere during photosynthesis?",
-        options: ["Oxygen", "Carbon Dioxide", "Nitrogen", "Hydrogen"],
-        correctAnswer: "Carbon Dioxide",
-    },
-];
+function parseCSV(data) {
+    const rows = data.split("\n");
 
-let currentQuestionIndex = 0;
-let correct = 0;
-
-function showQuestion(index) {
-    // Step 2
-    const question = quizData[index];
-    questionElement.textContent = question.question;
-
-    // Create a for loop that iterates through the options
-    // Create a button element with the text of that option
-    // Add an event listen to the button to call checkAnswer
-
-    for(let i = 0; i < question.options.length; i++){
-        const optionButton = document.createElement("button");
-        optionButton.textContent = question.options[i];
-        optionButton.addEventListener("click", () => {
-            checkAnswer(optionButton.textContent)
-        })
-        optionsElement.appendChild(optionButton);
-    }
-
+    // TODO: STEP 1
 }
 
-function checkAnswer(selectedOption) {
-    // Step 3
+/**
+ * Takes in an object of scientists and create a <li> element for each scientist
+ * @param scientists
+ */
+function displayScientistsList(scientists) {
+    // TODO: STEP 2
 }
 
-// Start the quiz
-showQuestion(currentQuestionIndex);
+/**
+ * Takes in a name and add the innerHTML for the
+ */
+function displayScientistInformation(name) {
+    // TODO: Step 3
+}
