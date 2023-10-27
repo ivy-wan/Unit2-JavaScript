@@ -35,6 +35,8 @@ function showQuestion(index) {
     // Create a for loop that iterates through the options
     // Create a button element with the text of that option
     // Add an event listen to the button to call checkAnswer
+    optionsElement.innerHTML = "";
+
 
     for(let i = 0; i < question.options.length; i++){
         const optionButton = document.createElement("button");
@@ -49,6 +51,27 @@ function showQuestion(index) {
 
 function checkAnswer(selectedOption) {
     // Step 3
+    const correctAnswer = quizData[currentQuestionIndex].correctAnswer;
+
+    if(selectedOption === correctAnswer){
+        correct++;
+        alert("Correct!");
+    }
+    else {
+        alert("Incorrect. The correct answer is: " + correctAnswer);
+    }
+
+    currentQuestionIndex++
+
+    // Move on to next question
+    if(currentQuestionIndex < quizData.length){
+        showQuestion(currentQuestionIndex);
+    }
+    else {
+        questionElement.textContent =   `Quiz complete! You scored ${correct} out of ${quizData.length}!`
+        optionsElement.innerHTML = "";
+    }
+
 }
 
 // Start the quiz
