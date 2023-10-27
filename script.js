@@ -33,8 +33,13 @@ document
  */
 function parseCSV(data) {
     const rows = data.split("\n");
+    const dataObj = {}
 
     // TODO: STEP 1
+    for(let i = 1; i < rows.length; i++){
+        console.log(rows[i]);
+        const row = rows[i].split(";");
+    }
 }
 
 /**
