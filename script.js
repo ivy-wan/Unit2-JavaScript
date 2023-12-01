@@ -33,13 +33,27 @@ document
  */
 function parseCSV(data) {
     const rows = data.split("\n");
-    const dataObj = {}
+    const dataObj = {};
 
     // TODO: STEP 1
-    for(let i = 1; i < rows.length; i++){
+    for (let i = 1; i < rows.length; i++) {
         console.log(rows[i]);
         const row = rows[i].split(";");
+        const name = row[0];
+        const field = row[1];
+        const discovery = row[2];
+        const year = row[3];
+        const bio = row[4];
+
+        // Create a entry into my object
+        dataObj[name] = {
+            field,
+            discovery,
+            year,
+            bio,
+        };
     }
+    return dataObj;
 }
 
 /**
@@ -47,7 +61,21 @@ function parseCSV(data) {
  * @param scientists
  */
 function displayScientistsList(scientists) {
-    // TODO: STEP 2
+    // Iterating through the keys of the scientist object
+    for(let scientistName in scientists){
+        console.log(scientistName);
+        const scientistItem = document.createElement("li");
+        // <li>Isaac </li>
+        scientistItem.textContent = scientistName;
+        const ulTag = document.getElementById("scientist-list");
+        ulTag.appendChild(scientistItem);
+
+        scientistItem.addEventListener("click", () => {
+            displayScientistInformation(scientistName);
+        })
+
+
+    }
 }
 
 /**
